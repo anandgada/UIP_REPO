@@ -1,0 +1,19 @@
+/* coursetitle */
+.coursetitle {
+    font-size: 20px;
+    font-weight: 900;
+}
+
+/* card container */
+.card_container {
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+/* OnlinecourseContainer */
+.OnlinecourseContainer {
+    background-color: white;
+}

@@ -1,0 +1,1 @@
+export const HACKER_RANK_BADGE_URL = "https://www.hackerrank.com/rest/hackers/%s/badges"

@@ -1,0 +1,12 @@
+/* EducationPage_Container */
+.EducationPage_Container {
+    background-color: white;
+}
+
+.bg-light {
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: white !important;
+    background-color: #0F172A !important;
+    width: 370px;
+}

@@ -1,0 +1,89 @@
+/* manvector */
+.manVector {
+    height: 630px;
+    padding-bottom: 30px;
+    padding-left: 50px;
+    margin-left: 60px;
+}
+
+/* imagevector */
+.imagevector {
+    z-index: 1;
+}
+
+/*  button */
+.login_btn {
+    width: 100px;
+    margin: 20px 20px 0px 0px;
+}
+
+.signup_btn {
+    width: 100px;
+    margin: 20px 20px 0px 0px;
+
+}
+
+
+/* intro_container */
+.intro_container {
+    width: 740px;
+    line-height: 31px;
+    font-size: 16px;
+    font-weight: normal;
+    padding-top: 20px;
+    /* background-color: rgba(117, 99, 252, 0.11); */
+    border-radius: 10px;
+    /* padding: 20px; */
+}
+
+/* title_container */
+.title_container {
+    background-color: rgba(117, 99, 252, 0.11);
+    height: 100px;
+    width: 800px;
+    border-radius: 10px;
+    padding-left: 20px;
+
+}
+
+/* Subtitle */
+.subtitle {
+    width: 450px;
+    padding-top: 10px;
+}
+
+/* title */
+.title {
+    font-size: 45px;
+    font-weight: bold;
+
+}
+
+/* Blur picture */
+.blur_picture {
+    background-color: rgba(0, 133, 255, 0.5);
+    height: 300px;
+    width: 500px;
+    filter: blur(100px);
+    position: absolute;
+    left: 800px;
+    z-index: 0;
+
+}
+
+
+/* whole_container */
+.whole_container {
+    margin: 100px 0px 0px 60px;
+}
+
+
+/* body */
+
+body {
+    background-color: #0F172A;
+    position: relative;
+    color: white;
+
+
+}

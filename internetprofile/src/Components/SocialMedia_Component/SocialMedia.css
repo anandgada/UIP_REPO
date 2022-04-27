@@ -1,0 +1,53 @@
+/* sidebar_underline */
+.Socailsidebar_underline {
+    background-color: white;
+    width: 270px;
+    height: 4px;
+
+}
+
+/* sidebar title */
+.SocialSidebar_title {
+    padding: 50px;
+    font-size: 30px;
+    font-family: 'Poppins', sans-serif;
+    line-height: 40px;
+}
+
+/* sidebar left */
+.Socialleft_sidebar {
+    background-color: #0F172A;
+    width: 270px;
+    height: 100vh;
+}
+
+/* personalDetails_Container */
+.SocialMedia_Container {
+    background-color: #F8F9FD;
+    color: #0F172A;
+    font-family: "poppins";
+    font-weight: 900;
+    margin: 80px 0 0px 190px;
+    padding: 35px;
+    border-radius: 10px;
+    height: 420px;
+    z-index: 1;
+
+}
+
+/* Blur picture */
+.blur_picture {
+    background-color: rgba(0, 133, 255, 0.5);
+    height: 300px;
+    width: 500px;
+    filter: blur(100px);
+    position: absolute;
+    left: 800px;
+    top: 30px;
+    z-index: 1;
+
+}
+
+.SocailMediaContainer {
+    background-color: white;
+}
