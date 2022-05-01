@@ -41,16 +41,21 @@ const PersonalDetailsComponent = () => {
   }
 
   useEffect(() => {
+    if (error) {
+      alert(error.message + " er");
+      return;
+    }
     if (data) {
       const userCreated =
         data?.data?.createUserPersonalDetail?.data?.id !== null;
       if (userCreated) {
-        navigate("/Resultpage");
+        window.location.replace("/Resultpage");
+        return;
       } else {
         alert("Please try again adding details.!");
       }
     }
-  }, [data]);
+  }, [data, error]);
 
   return (
     // PersonalDetails_container

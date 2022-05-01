@@ -13,6 +13,7 @@ const ResultpageComponent = () => {
   const { loading, error, data } = useQuery(GET_USER_ALL_DATA, {
     variables: { id: userId },
   });
+
   useEffect(() => {
     if (data && userId && currentUser) {
       setCurrentUser(data?.usersPermissionsUser?.data?.attributes);
@@ -79,6 +80,22 @@ const ResultpageComponent = () => {
           <NavLink to="/OnlineCourses" className="links">
             Online Presence
           </NavLink>
+          <button
+            style={{
+              background: "none",
+              border: "none",
+              textAlign: "left",
+              color: "white",
+              fontWeight: "bold",
+              margin: "2rem 3rem",
+            }}
+            onClick={() => {
+              window.localStorage.clear();
+              window.location.reload();
+            }}
+          >
+            Logout
+          </button>
         </div>
       </div>
       {/* Profile details with About and Skills */}

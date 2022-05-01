@@ -29,8 +29,8 @@ const EducationDetailsCompoenent = () => {
   }
   useEffect(() => {
     if (data) {
-      if (data?.createUserEducationDetail?.id) {
-        Navigate("/Resultpage");
+      if (data?.createUserEducationDetail?.data?.id) {
+        window && window.location.reload();
       }
     }
   }, [data]);

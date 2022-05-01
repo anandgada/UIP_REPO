@@ -1,16 +1,34 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./SocialMedia.css";
 import { useNavigate } from "react-router";
+import { useMutation } from "@apollo/client";
+import { UPDATE_PROFILES, UPDATE_USER_PROVIDERS } from "../../graphql";
+import { useUserContent } from "../../context/userContext";
 
 const SocialMediaComponent = () => {
   let Navigate = useNavigate(); //navigation hook
 
   const [linkedIn, setLinkedIn] = useState("");
   const [github, setGithub] = useState("");
-  function Resultpag() {
-    Navigate("/Resultpage");
-  }
+  const { currentUser, userId } = useUserContent();
 
+  const [updateUserData, { data, error, loading }] = useMutation(
+    UPDATE_USER_PROVIDERS
+  );
+
+  useEffect(() => {
+    if (loading || !data) return;
+    if (error) {
+      alert(error.message + "er");
+      return;
+    }
+    if (data?.updateUsersPermissionsUser?.data?.id) {
+      window && window.location.reload();
+      return;
+    } else {
+      alert(data?.error?.errors[0].message + "er");
+    }
+  }, [data, error, loading]);
   const completeProviders = () => {
     if (!linkedIn || !github) {
       alert("Please fill the fields first.!");
@@ -23,6 +41,7 @@ const SocialMediaComponent = () => {
         value: linkedIn,
       },
     ];
+    updateUserData({ variables: { userId: userId, providers: data } });
   };
   // Alert functions
 

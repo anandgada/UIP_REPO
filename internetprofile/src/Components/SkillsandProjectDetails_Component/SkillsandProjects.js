@@ -6,6 +6,7 @@ import { CREATE_SKILLS } from "../../graphql";
 
 const SkillandProjectComponent = () => {
   const [skills, setSkills] = useState("");
+  const [about, setabout] = useState("");
   const [project, setProject] = useState({
     role: "",
     duration: "",
@@ -33,8 +34,10 @@ const SkillandProjectComponent = () => {
   useEffect(() => {
     if (data) {
       console.log(data);
-      if (data?.createUserSkillsandProject?.id) {
-        Navigate("/Resultpage");
+      if (data?.createUserSkillsandProject?.data?.id) {
+        window && window.location.reload();
+
+        return;
       }
     }
   }, [data]);
@@ -118,6 +121,11 @@ const SkillandProjectComponent = () => {
               value={project.description}
             />
           </div>
+        </div>
+        <div className="mt-3">
+          <label>About Yourself : </label>
+          <br></br>
+          <textarea onChange={(e) => setabout(e.target.value)} value={about} />
         </div>
 
         {/* Next button */}

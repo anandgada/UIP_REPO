@@ -32,6 +32,10 @@ const Logincomponent = () => {
   }
 
   useEffect(() => {
+    if (signIn?.error) {
+      signIn?.reset();
+      alert(signIn.error + " er");
+    }
     if (signIn?.data && signIn?.data?.login?.jwt) {
       window.localStorage.setItem("token", signIn?.data?.login?.jwt);
       window.localStorage.setItem("isLoggedIn", true);
@@ -41,7 +45,7 @@ const Logincomponent = () => {
         navigate("/Resultpage");
       }, 1000);
     }
-  }, [signIn?.data]);
+  }, [signIn?.data, signIn?.error]);
   return (
     <div className="container">
       {/* Blur picture */}

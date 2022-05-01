@@ -26,14 +26,28 @@ const UserContextProvider = ({ children }) => {
       navigation("/login");
     }
   }, []);
-  const [signUp, { data: signUpUserData, error: signUpUserError }] =
-    useMutation(REGISTER);
+  const [
+    signUp,
+    { data: signUpUserData, error: signUpUserError, reset: signUpReset },
+  ] = useMutation(REGISTER);
 
-  const [signIn, { data: signInUserData, error: signInUserError }] =
-    useMutation(LOGIN);
+  const [
+    signIn,
+    { data: signInUserData, error: signInUserError, reset: signInReset },
+  ] = useMutation(LOGIN);
   const value = {
-    signUp: { signUp, data: signUpUserData, error: signUpUserError },
-    signIn: { signIn, data: signInUserData, error: signInUserError },
+    signUp: {
+      signUp,
+      data: signUpUserData,
+      error: signUpUserError,
+      reset: signUpReset,
+    },
+    signIn: {
+      signIn,
+      data: signInUserData,
+      error: signInUserError,
+      reset: signInReset,
+    },
     userId,
     setCurrentUser,
     currentUser,

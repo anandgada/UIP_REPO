@@ -44,6 +44,22 @@ const EducationPageComponent = (props) => {
           <NavLink to="/OnlineCourses" className="links">
             Online Presence
           </NavLink>
+          <button
+            style={{
+              background: "none",
+              border: "none",
+              textAlign: "left",
+              color: "white",
+              fontWeight: "bold",
+              margin: "2rem 3rem",
+            }}
+            onClick={() => {
+              window.localStorage.clear();
+              window.location.reload();
+            }}
+          >
+            Logout
+          </button>
         </div>
       </div>
 
