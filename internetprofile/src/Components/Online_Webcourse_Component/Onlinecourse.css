@@ -1,19 +1,40 @@
 /* coursetitle */
 .coursetitle {
-    font-size: 20px;
-    font-weight: 900;
+  font-size: 20px;
+  font-weight: 900;
 }
 
 /* card container */
 .card_container {
-    border-radius: 10px;
-    padding: 10px;
-    margin-top: 10px;
-    text-align: center;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  text-align: center;
 }
-
 
 /* OnlinecourseContainer */
 .OnlinecourseContainer {
-    background-color: white;
+  background-color: white;
+}
+
+.heading,
+.p {
+  color: rgb(0, 0, 0);
+  font-size: 20px;
+  font-family: "roboto";
+  font-weight: bold;
+}
+
+.OnlinedataContainer {
+  padding: 30px;
+  background-color: rgba(117, 99, 252, 0.11);
+}
+
+.linkedinBtn {
+  margin-left: 20px;
+  /* color: white; */
+}
+
+.margin {
+  margin: 20px 30px;
 }

@@ -68,6 +68,7 @@ export const GET_USER_ALL_DATA = gql`
         attributes {
           username
           email
+          linkedin_data
           providers {
             provider
             value
@@ -188,6 +189,17 @@ export const UPDATE_USER_PROVIDERS = gql`
     $providers: [ComponentGithubConnectionInput]!
   ) {
     updateUsersPermissionsUser(id: $userId, data: { providers: $providers }) {
+      data {
+        id
+      }
+    }
+  }
+`;
+
+export const UPDATE_USER_LINKEDIN = gql`
+  # Write your query or mutation here
+  mutation updateLinkedInData($data: JSON!, $userId: ID!) {
+    updateUsersPermissionsUser(id: $userId, data: { linkedin_data: $data }) {
       data {
         id
       }

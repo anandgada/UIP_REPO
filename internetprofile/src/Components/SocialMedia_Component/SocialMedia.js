@@ -58,7 +58,7 @@ const SocialMediaComponent = () => {
 
       {/* Socail media links */}
       <div className="SocialMedia_Container w-50">
-        <h2>3.Social Media Links</h2>
+        <h2>3.Social Media Profile Names</h2>
         <div className="pt-5">
           <textarea
             id="linkedtext"

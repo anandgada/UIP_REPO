@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { useUserContent } from "../../context/userContext";
 import "./Project.css";
+import Avatar from "react-avatar";
 
 const ProjectComponent = () => {
   const { userData, currentUser } = useUserContent();
@@ -57,11 +58,14 @@ const ProjectComponent = () => {
         <div className="profile_container shadow ">
           {/* image container */}
           <div className="profileImageContainer">
-            <img
-              src={userData?.avatar_url}
-              width={"100%"}
-              height={"100%"}
-              style={{ borderRadius: "inherit" }}
+            <Avatar
+              name={
+                currentUser?.deatils?.data?.attributes?.firstName +
+                " " +
+                currentUser?.deatils?.data?.attributes?.lastName
+              }
+              style={{ width: "100%", height: "100%", borderRadius: "10px" }}
+              size={"100%"}
             />
           </div>
 

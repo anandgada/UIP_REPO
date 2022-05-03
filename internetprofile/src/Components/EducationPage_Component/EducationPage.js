@@ -5,6 +5,7 @@ import { useLocation, useNavigate } from "react-router";
 import { useMutation } from "@apollo/client";
 import { GET_USER_ALL_DATA } from "../../graphql";
 import "./EducationPage.css";
+import Avatar from "react-avatar";
 import { useUserContent } from "../../context/userContext";
 
 const EducationPageComponent = (props) => {
@@ -62,7 +63,6 @@ const EducationPageComponent = (props) => {
           </button>
         </div>
       </div>
-
       <div className="d-flex flex-column w-100">
         {/* Profile details Container */}
         <div className=" d-flex flex-column">
@@ -73,11 +73,14 @@ const EducationPageComponent = (props) => {
           <div className="profile_container shadow ">
             {/* image container */}
             <div className="profileImageContainer">
-              <img
-                src={userData?.avatar_url}
-                width={"100%"}
-                height={"100%"}
-                style={{ borderRadius: "inherit" }}
+              <Avatar
+                name={
+                  currentUser?.deatils?.data?.attributes?.firstName +
+                  " " +
+                  currentUser?.deatils?.data?.attributes?.lastName
+                }
+                style={{ width: "100%", height: "100%", borderRadius: "10px" }}
+                size={"100%"}
               />
             </div>
 
@@ -132,20 +135,6 @@ const EducationPageComponent = (props) => {
                 </div>
               );
             })}
-            {/* <div className="bg-light mt-3 ">
-              <button className="btn btn-outline-danger">B.tech</button>
-              <p className="mt-3">
-                Rajiv Gandhi University of Knowledge Technologies - Nuzvid
-              </p>
-              <p>CGPA : 75%</p>
-            </div>
-            <div className="bg-light  mt-3">
-              <button className="btn btn-outline-info">Puc</button>
-              <p className="mt-3">
-                Rajiv Gandhi University of Knowledge Technologies - Nuzvid
-              </p>
-              <p>CGPA : 75%</p>
-            </div> */}
           </div>
         </div>
       </div>

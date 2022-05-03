@@ -1,10 +1,11 @@
 import { useQuery } from "@apollo/client";
 import axios from "axios";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useUserContent } from "../../context/userContext";
 import { GET_USER_ALL_DATA } from "../../graphql";
 import { useNavigate } from "react-router";
+import Avatar from "react-avatar";
 import "./Resultpage.css";
 
 const ResultpageComponent = () => {
@@ -14,6 +15,15 @@ const ResultpageComponent = () => {
     variables: { id: userId },
   });
 
+  const [linkedInData, setLinkedInData] = useState({});
+  useEffect(() => {
+    if (!currentUser) return;
+    if (currentUser?.linkedin_data) {
+      // setLinedInThere(true);
+      const jsonParsedData = JSON.parse(currentUser?.linkedin_data);
+      setLinkedInData(jsonParsedData);
+    }
+  }, [currentUser]);
   useEffect(() => {
     if (data && userId && currentUser) {
       setCurrentUser(data?.usersPermissionsUser?.data?.attributes);
@@ -39,7 +49,6 @@ const ResultpageComponent = () => {
       if (providerThere && providerThere.length < 1) {
         navigation("/SocialMediaLinks");
       }
-      // console.log(currentUser, "asasasasas");
     }
   }, [data, userId, currentUser]);
 
@@ -107,11 +116,14 @@ const ResultpageComponent = () => {
         <div className="profile_container shadow">
           {/* image container */}
           <div className="profileImageContainer">
-            <img
-              src={currentUser?.avatar_url}
-              width={"100%"}
-              height={"100%"}
-              style={{ borderRadius: "inherit" }}
+            <Avatar
+              name={
+                currentUser?.deatils?.data?.attributes?.firstName +
+                " " +
+                currentUser?.deatils?.data?.attributes?.lastName
+              }
+              style={{ width: "100%", height: "100%", borderRadius: "10px" }}
+              size={"100%"}
             />
           </div>
 
@@ -152,13 +164,7 @@ const ResultpageComponent = () => {
         <div className="text-dark padding_left_and_top mt-5">
           <h6 className="h6">About</h6>
           <br></br>
-          <p className="mt-3">
-            A Dedicated , Hardworking and Technical oriented Computer Science
-            Engineer. Eagerly waiting for a challenging position in reputable
-            organization to utilize my Technical skills for the growth of
-            organization as well as to enhance my Knowledge and skills in
-            changing Environment
-          </p>
+          <p className="mt-3">{linkedInData?.data?.about}</p>
         </div>
 
         {/* skills */}
@@ -174,20 +180,6 @@ const ResultpageComponent = () => {
                 </button>
               );
             })}
-          {/* <button className="btn btn-secondary btn-sm">React.js</button>
-          <button className="btn btn-secondary btn-sm">CSS</button>
-          <button className="btn btn-secondary btn-sm">HTML</button>
-          <button className="btn btn-secondary btn-sm">JavaScript</button>
-          <button className="btn btn-secondary btn-sm">Figma</button>
-          <button className="btn btn-secondary btn-sm">Adobe Photoshop</button>
-          <button className="btn btn-secondary btn-sm">
-            Adobe Illustrator
-          </button>
-          <button className="btn btn-secondary btn-sm">UI/UX</button>
-          <button className="btn btn-secondary btn-sm">C</button>
-          <button className="btn btn-secondary btn-sm">Java</button>
-          <button className="btn btn-secondary btn-sm">Python</button>
-          <button className="btn btn-secondary btn-sm">R</button> */}
         </div>
 
         {/* languages */}
